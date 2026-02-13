@@ -79,6 +79,7 @@ public class ProfilesViewModel : MyReactiveObject
     public ReactiveCommand<Unit, Unit> AddSubCmd { get; }
     public ReactiveCommand<Unit, Unit> EditSubCmd { get; }
     public ReactiveCommand<Unit, Unit> DeleteSubCmd { get; }
+    public ReactiveCommand<Unit, Unit> SolvexITCmd { get; }
 
     #endregion Menu
 
@@ -193,6 +194,10 @@ public class ProfilesViewModel : MyReactiveObject
         MixedTestServerCmd = ReactiveCommand.CreateFromTask(async () =>
         {
             await ServerSpeedtest(ESpeedActionType.Mixedtest);
+        });
+        SolvexITCmd = ReactiveCommand.CreateFromTask(async () =>
+        {
+            await _updateView?.Invoke(EViewAction.SolvexITWindow, null);
         });
         TcpingServerCmd = ReactiveCommand.CreateFromTask(async () =>
         {

@@ -93,6 +93,15 @@
                         <PathIcon Data="{StaticResource building_ping}" />
                     </Button.Content>
                 </Button>
+                <Button
+                    x:Name="btnSolvexIT"
+                    Margin="{StaticResource MarginLr4}"
+                    Classes="IconButton Success"
+                    ToolTip.Tip="{x:Static resx:ResUI.menuSolvexIT}">
+                    <Button.Content>
+                        <PathIcon Data="{StaticResource building_solvexit}" />
+                    </Button.Content>
+                </Button>
 
             </WrapPanel>
             <DataGrid

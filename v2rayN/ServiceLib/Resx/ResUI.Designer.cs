@@ -4715,5 +4715,11 @@ namespace ServiceLib.Resx {
                 return ResourceManager.GetString("UpgradeAppNotExistTip", resourceCulture);
             }
         }
+
+        public static string menuSolvexIT {
+            get {
+                return ResourceManager.GetString("menuSolvexIT", resourceCulture);
+            }
+        }
     }
 }

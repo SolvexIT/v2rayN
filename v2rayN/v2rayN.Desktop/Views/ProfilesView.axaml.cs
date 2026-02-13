@@ -84,6 +84,7 @@ public partial class ProfilesView : ReactiveUserControl<ProfilesViewModel>
             this.BindCommand(ViewModel, vm => vm.SortServerResultCmd, v => v.menuSortServerResult).DisposeWith(disposables);
             this.BindCommand(ViewModel, vm => vm.RemoveInvalidServerResultCmd, v => v.menuRemoveInvalidServerResult).DisposeWith(disposables);
             this.BindCommand(ViewModel, vm => vm.FastRealPingCmd, v => v.btnFastRealPing).DisposeWith(disposables);
+            this.BindCommand(ViewModel, vm => vm.SolvexITCmd, v => v.btnSolvexIT).DisposeWith(disposables);
 
             //servers export
             this.BindCommand(ViewModel, vm => vm.Export2ClientConfigCmd, v => v.menuExport2ClientConfig).DisposeWith(disposables);
@@ -199,6 +200,9 @@ public partial class ProfilesView : ReactiveUserControl<ProfilesViewModel>
                 }
 
                 return await new SubEditWindow((SubItem)obj).ShowDialog<bool>(_window);
+
+            case EViewAction.SolvexITWindow:
+                return await new SolvexITWindow().ShowDialog<bool>(_window);
 
             case EViewAction.DispatcherRefreshServersBiz:
                 Dispatcher.UIThread.Post(RefreshServersBiz, DispatcherPriority.Default);

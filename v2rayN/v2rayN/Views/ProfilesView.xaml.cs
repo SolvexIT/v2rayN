@@ -78,6 +78,7 @@ public partial class ProfilesView
             this.BindCommand(ViewModel, vm => vm.SortServerResultCmd, v => v.menuSortServerResult).DisposeWith(disposables);
             this.BindCommand(ViewModel, vm => vm.RemoveInvalidServerResultCmd, v => v.menuRemoveInvalidServerResult).DisposeWith(disposables);
             this.BindCommand(ViewModel, vm => vm.FastRealPingCmd, v => v.btnFastRealPing).DisposeWith(disposables);
+            this.BindCommand(ViewModel, vm => vm.SolvexITCmd, v => v.btnSolvexIT).DisposeWith(disposables);
 
             //servers export
             this.BindCommand(ViewModel, vm => vm.Export2ClientConfigCmd, v => v.menuExport2ClientConfig).DisposeWith(disposables);
@@ -180,6 +181,9 @@ public partial class ProfilesView
                 }
 
                 return new SubEditWindow((SubItem)obj).ShowDialog() ?? false;
+
+            case EViewAction.SolvexITWindow:
+                return new SolvexITWindow().ShowDialog() ?? false;
 
             case EViewAction.DispatcherRefreshServersBiz:
                 Application.Current?.Dispatcher.Invoke(RefreshServersBiz, DispatcherPriority.Normal);

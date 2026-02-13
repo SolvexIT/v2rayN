@@ -1,0 +1,29 @@
+<Window
+    x:Class="v2rayN.Desktop.Views.SolvexITWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resx="clr-namespace:ServiceLib.Resx;assembly=ServiceLib"
+    xmlns:vms="clr-namespace:ServiceLib.ViewModels;assembly=ServiceLib"
+    Title="{x:Static resx:ResUI.menuSolvexIT}"
+    Width="600"
+    Height="400"
+    x:DataType="vms:SolvexITViewModel"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Bold"
+                Text="SolvexIT Infrastructure"
+                TextAlignment="Center" />
+            <TextBlock
+                Margin="0,20,0,0"
+                Text="Manage your SolvexIT VPN infrastructure here."
+                TextAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Window>
