@@ -7,23 +7,36 @@
     xmlns:resx="clr-namespace:ServiceLib.Resx;assembly=ServiceLib"
     xmlns:vms="clr-namespace:ServiceLib.ViewModels;assembly=ServiceLib"
     Title="{x:Static resx:ResUI.menuSolvexIT}"
-    Width="600"
-    Height="400"
+    Width="800"
+    Height="600"
     x:DataType="vms:SolvexITViewModel"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock
-                FontSize="24"
-                FontWeight="Bold"
-                Text="SolvexIT Infrastructure"
-                TextAlignment="Center" />
-            <TextBlock
-                Margin="0,20,0,0"
-                Text="Manage your SolvexIT VPN infrastructure here."
-                TextAlignment="Center" />
+    <DockPanel Margin="{StaticResource Margin8}">
+        <StackPanel DockPanel.Dock="Top" Margin="{StaticResource Margin4}" Orientation="Horizontal" Spacing="4">
+            <TextBox x:Name="txtRemarks" Width="150" Watermark="{x:Static resx:ResUI.TbRemarks}" Text="{Binding EditRemarks}" />
+            <TextBox x:Name="txtDomainPort" Width="200" Watermark="Domain:Port" Text="{Binding EditDomainPort}" />
+            <TextBox x:Name="txtVrtexID" Width="150" Watermark="VrtexID (12 chars)" MaxLength="12" Text="{Binding EditVrtexID}" />
+            <Button x:Name="btnAdd" Content="{Binding AddBtnText}" Command="{Binding AddCmd}" Classes="Primary" />
+            <Button x:Name="btnDelete" Content="{x:Static resx:ResUI.menuSubDelete}" Command="{Binding DeleteCmd}" Classes="Danger" />
         </StackPanel>
-    </Grid>
+
+        <DataGrid
+            x:Name="lstServers"
+            ItemsSource="{Binding ServerItems}"
+            SelectedItem="{Binding SelectedItem}"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            GridLinesVisibility="All"
+            BorderThickness="1"
+            BorderBrush="{DynamicResource SemiGrey1}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="150" Binding="{Binding Remarks}" Header="{x:Static resx:ResUI.LvRemarks}" />
+                <DataGridTextColumn Width="200" Binding="{Binding Domain}" Header="{x:Static resx:ResUI.LvAddress}" />
+                <DataGridTextColumn Width="80" Binding="{Binding Port}" Header="{x:Static resx:ResUI.LvPort}" />
+                <DataGridTextColumn Width="200" Binding="{Binding VrtexID}" Header="VrtexID" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 </Window>
